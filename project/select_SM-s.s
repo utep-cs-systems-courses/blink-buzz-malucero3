@@ -1,0 +1,36 @@
+	.arch msp430g2553
+	.p2align 1,0
+	.text
+
+jt:	.word default
+	.word case1
+	.word case2
+	.word case3
+	.word case4
+
+	.global select_SM
+	.extern n_switch_down
+
+select_SM:
+	;; if (n_switch down; >4) goto default
+	cmp &n_switch_down, #4 	; 4-n_switch_down
+	jnc default
+	;; pc = jt[n_switch_down]
+	mov &n_switch_down, r12
+	add r12, r12 		; get offset b/c each entry is 2 bytes
+	move jt(r12), r0	;moves value we want to PC to be read
+case1:
+	call #toggle_green
+	jmp end
+case2:
+	call #dimming_state_machines
+	jmp end
+case3:
+	call #imp
+	jmp end
+case4:
+default:
+	call #off_leds_buzzer
+end:
+	pop r0
+	

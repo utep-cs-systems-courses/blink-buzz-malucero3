@@ -10,17 +10,18 @@ void select_SM()
 
   switch (n_switch_down){
   case 1:
-
+    toggle_green();
       break;
   case 2:
-
+    dimming_state_machines();
     break;
   case 3:
-
+    imp();
     break;
   case 4:
   default:
     off_leds_buzzer();
   }
 }
+
 

@@ -15,6 +15,28 @@ void toggle_green(){
   led_update();
   buzzer_set_period(0);
 }
+
+static int buzzerSound = 0;
+void imperialSound(){
+  int soundArr[12] = {704,0,704,0,704,0,1674,0,1184,0,704,0}
+  buzzer_set_period(soundArr[buzzerSound]);
+  led_changed = 1;
+  led_update();
+  buzzerSound ++;
+  if (buzzerSound >= 11){
+    buzzerSound = 0;
+  }
+}
+static char blink_count = 0;
+static buzzCount = 0;
+void imp()
+{
+  if(++buzzCount == 65){
+    imperialSound();
+    buzzzCount = 0;
+  }
+}
+
 /*
 Dimming LED pattern functions:
 LCD changes intensity based on how many times it's on per second
