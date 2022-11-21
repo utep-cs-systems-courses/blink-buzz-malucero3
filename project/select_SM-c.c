@@ -10,7 +10,7 @@ void select_SM()
 
   switch (n_switch_down){
   case 1:
-    toggle_green();
+    alternate_led();
       break;
   case 2:
     dimming_state_machines();

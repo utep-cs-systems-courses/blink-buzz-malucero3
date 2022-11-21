@@ -31,3 +31,10 @@ clean:
 	(cd timerLib && make clean)
 	rm -rf h lib
 	rm -f *.o *.elf
+
+led.o: led.c led.h switches.h
+switches.o: switches.c switches.h led.h buzzer.h
+stateMachines.o: led.h stateMachines.h buzzer.h
+buzzer.c: buzzer.h
+main.c: buzzer.h led.h switches.h
+slect_SM-c.o: switches.h stateMachines.h select_SM.h

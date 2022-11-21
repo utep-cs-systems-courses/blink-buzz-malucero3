@@ -7,19 +7,36 @@
 static char led_state = 0;
 static char change = 0;
 // as button is pressed, we increment to 3 starting from 0
-void toggle_green(){
+void toggle_green()
+{
   
-  red_on = change;
-  if change < 2{
-  change +=1;
-    }
-  green_on = change;
-  change;
-  led_changed = 1;
-  led_update();
-  buzzer_set_period(0);
+  switch(change){
+  case 0:
+    green_on = 1;
+    red_on = 0;
+    change = 1;
+    led_changed = change;
+    led_update();
+    buzzer_set_period(0);
+    break;
+  case 1:
+    green_on = 0;
+    red_on = 1;
+    change = 0;
+    led_changed = 1;
+    led_update();
+    buzzer_set_period(0);
+    break;
+  }
 }
-
+void alternate_led()
+{
+  static char blink_count = 0;
+  if (++blink_count >= 250) {
+    toggle_green();
+    blink_count = 0;
+  }
+}
 static int buzzerSound = 0;
 void imperialSound(){
   int soundArr[12] = {704,0,704,0,704,0,1674,0,1184,0,704,0};

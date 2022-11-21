@@ -5,7 +5,7 @@
 
 static char count;
 
-void toggle_green();
+void alternate_led();
 
 void imp();
 
