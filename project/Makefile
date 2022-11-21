@@ -18,7 +18,7 @@ timLib:
 proj-c.elf: ${COMMON_OBJECTS} select_SM-c.o ./lib/libTimer.a
 	${CC} ${CFLAGS} ${LDFLAGS} -o $@ $^
 
-proj-s.elf: ${COMMON_OBJECTS} select_SM-s.o ......./lib/libTimer.a
+proj-s.elf: ${COMMON_OBJECTS} select_SM-s.o ./lib/libTimer.a
 	${CC} ${CFLAGS} ${LDFLAGS} -o $@ $^
 
 load-c: proj-c.elf

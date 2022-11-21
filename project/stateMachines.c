@@ -2,15 +2,19 @@
 #include "stateMachines.h"
 #include "led.h"
 #include "buzzer.h"
-#inlcude "switches.h"
-
+#include "switches.h"
 
 static char led_state = 0;
-
+static char change = 0;
 // as button is pressed, we increment to 3 starting from 0
 void toggle_green(){
-  red_on = 0;
-  green_on = 1;
+  
+  red_on = change;
+  if change < 2{
+  change +=1;
+    }
+  green_on = change;
+  change;
   led_changed = 1;
   led_update();
   buzzer_set_period(0);
@@ -18,7 +22,7 @@ void toggle_green(){
 
 static int buzzerSound = 0;
 void imperialSound(){
-  int soundArr[12] = {704,0,704,0,704,0,1674,0,1184,0,704,0}
+  int soundArr[12] = {704,0,704,0,704,0,1674,0,1184,0,704,0};
   buzzer_set_period(soundArr[buzzerSound]);
   led_changed = 1;
   led_update();
@@ -28,12 +32,12 @@ void imperialSound(){
   }
 }
 static char blink_count = 0;
-static buzzCount = 0;
+static char buzzCount = 0;
 void imp()
 {
   if(++buzzCount == 65){
     imperialSound();
-    buzzzCount = 0;
+    buzzCount = 0;
   }
 }
 
@@ -60,7 +64,7 @@ void blinkUpdate()        // turn the light on/off based on the frequency select
 
 void oncePerSecond() //repeatedly start bright and gradually lower duty cycle one step/sec
 {
-  static unsigned short perio_inc = 1000;
+  static unsigned short period_inc = 1000;
 
   if(++blinkLimit >= 8){  //doesnt let the duty cycle go below 1/7
     blinkLimit = 0;

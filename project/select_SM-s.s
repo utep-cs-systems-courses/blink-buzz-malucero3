@@ -18,7 +18,7 @@ select_SM:
 	;; pc = jt[n_switch_down]
 	mov &n_switch_down, r12
 	add r12, r12 		; get offset b/c each entry is 2 bytes
-	move jt(r12), r0	;moves value we want to PC to be read
+	mov jt(r12), r0	;moves value we want to PC to be read
 case1:
 	call #toggle_green
 	jmp end

@@ -8,7 +8,7 @@ void buzzer_init()
 
    */
   timerAUpmode();
-  P2SEL2 &= ~(PIT6 |BIT7);
+  P2SEL2 &= ~(BIT6 |BIT7);
   P2SEL &= ~BIT7;
   P2SEL |= BIT6;
   P2DIR = BIT6;

@@ -1,3 +1,4 @@
+
 #include <msp430.h>
 #include "led.h"
 #include "switches.h"
@@ -25,7 +26,7 @@ void led_update()
   }
 }
 
-void greenContron(int on)
+void greenControl(int on)
 {
   if (on){
     P1OUT |= LED_GREEN; //turn on green light
@@ -49,3 +50,4 @@ void led_off()
   led_changed = 1;
   led_update();
 }
+

@@ -6,3 +6,5 @@ void buzzer_set_period(unsigned short cycles);
 
 extern unsigned short curr_rate;
 extern unsigned short curr_period;
+
+#endif

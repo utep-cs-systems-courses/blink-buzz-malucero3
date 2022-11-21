@@ -1,5 +1,5 @@
 #include <msp430.h>
-#indluce "switched.h"
+#include "switches.h"
 #include "select_SM.h"
 
 //Swithc on S2
@@ -13,5 +13,5 @@ void __interrupt_vec(PORT2_VECTOR) port_2(){
 
 
 void __interrupt_vec(WDT_VECTOR) WDT(){ //250 interrupts/sec
-  selcet_SM();
+  select_SM();
 }
