@@ -20,7 +20,7 @@ select_SM:
 	add r12, r12 		; get offset b/c each entry is 2 bytes
 	mov jt(r12), r0	;moves value we want to PC to be read
 case1:
-	call #select_SM
+	call #alternate_led
 	jmp end
 case2:
 	call #dimming_state_machines
